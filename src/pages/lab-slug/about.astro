@@ -1,0 +1,79 @@
+---
+// About Lab Name. The title, headings, order and step format follow the about-page skill
+// (.agents/skills/about-page/SKILL.md): plain words that are the same on every lab. The
+// look can follow the lab's theme; the words never do. Leave out sections that don't
+// apply rather than filling them. Numbers and dates come from the lab's data at build
+// time, never typed in.
+import LabLayout from 'kp-design/layouts/LabLayout.astro';
+import '../../styles/theme.css';
+
+// "How it works": in the order things happen, from the source to the visitor's screen.
+// Each step's name is a plain sentence about what happens, never a play on the theme.
+const steps = [
+  {
+    name: 'The site is built from this repo',
+    where: 'Cloudflare, whenever something changes',
+    body: ['Replace these steps with how this lab really works: where its data starts, what happens to it, and what your browser does.'],
+  },
+  {
+    name: 'Your browser shows the page',
+    where: 'Your phone or computer',
+    body: ['The page is plain files. There’s no account and nothing you do is saved.'],
+  },
+];
+---
+
+<LabLayout
+  title="About Lab Name"
+  description="What Lab Name is, how it works and what it collects."
+  image="/lab-slug/og-about.png"
+  imageAlt="About Lab Name: what it is and how it works, on kylepace.dev."
+>
+  <a slot="bar" class="bar-link" href="/lab-slug/">Lab Name</a>
+
+  <article class="lab-page about-page prose">
+    <h1 class="title">About Lab Name</h1>
+
+    <section aria-labelledby="what-title">
+      <h2 id="what-title">What it is</h2>
+      <p>One or two short paragraphs: what <a href="/lab-slug/">Lab Name</a> does and who it’s for.</p>
+    </section>
+
+    <section aria-labelledby="how-title">
+      <h2 id="how-title">How it works</h2>
+      <ol class="steps">
+        {
+          steps.map((step) => (
+            <li>
+              <h3>{step.name}</h3>
+              <p class="where">Where it runs: {step.where}.</p>
+              {step.body.map((text) => <p>{text}</p>)}
+            </li>
+          ))
+        }
+      </ol>
+    </section>
+
+    <section aria-labelledby="good-title">
+      <h2 id="good-title">Good to know</h2>
+      <p>Limits and accuracy: how old the data can be, what’s missing, what it’s not for.</p>
+    </section>
+
+    <section aria-labelledby="privacy-title">
+      <h2 id="privacy-title">Privacy</h2>
+      <p>
+        Analytics works the same as the rest of kylepace.dev: anonymous, no cookies, and you can turn it off (<a
+          href="https://kylepace.dev/privacy/">privacy</a
+        >). This lab doesn’t contact any other sites.
+      </p>
+    </section>
+
+    <section aria-labelledby="contact-title">
+      <h2 id="contact-title">Get in touch</h2>
+      <p>
+        Questions or something that looks wrong: email <a href="mailto:mail@kylepace.net">mail@kylepace.net</a>. The code is public:{' '}
+        <a href="https://github.com/kyle-pace/lab-slug">github.com/kyle-pace/lab-slug</a>.
+      </p>
+    </section>
+  </article>
+</LabLayout>

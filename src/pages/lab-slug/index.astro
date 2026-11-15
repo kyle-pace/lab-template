@@ -1,0 +1,51 @@
+---
+// Lab Name, at kylepace.dev/lab-slug/. A standalone lab, not a page of kylepace.dev:
+// kp-design's LabLayout gives it a back link, an About link on the right of the top bar,
+// a footer line, display settings and analytics. Its look is src/styles/theme.css, and
+// the plan behind it is design/PLAN.md.
+//
+// The app comes first: one line of title, then the thing itself. The explanation lives
+// on the About page (./about.astro), not above the app.
+import LabLayout from 'kp-design/layouts/LabLayout.astro';
+import '../../styles/theme.css';
+---
+
+<LabLayout
+  title="Lab Name"
+  description="Lab description."
+  image="/lab-slug/og.png"
+  imageAlt="Lab Name: the share card for this lab on kylepace.dev."
+>
+  <a slot="bar" class="bar-link" href="/lab-slug/about/">About</a>
+
+  <div class="lab-page">
+    <h1 class="title">Lab Name</h1>
+
+    <!-- The app goes here. Replace this paragraph and the button with the lab itself. -->
+    <section class="prose" aria-label="Lab Name">
+      <p>This lab is brand new. The app goes here.</p>
+      <p><button type="button" class="try" data-try>Try the example event</button></p>
+    </section>
+  </div>
+</LabLayout>
+
+<script>
+  // Example of a custom event: track() adds `experiment: 'lab-slug'` for you. Delete this
+  // once the lab has real events, and put every event in the kylepace.dev tracking plan.
+  import { track } from '../../lib/track';
+
+  document.querySelector('[data-try]')?.addEventListener('click', () => track('Tried Example'));
+</script>
+
+<style>
+  .try {
+    min-height: 2.75rem;
+    padding: var(--space-2) var(--space-4);
+    border: 2px solid var(--ink);
+    border-radius: var(--radius-sm);
+    background: var(--bg-raised);
+    color: var(--ink);
+    font: inherit;
+    cursor: pointer;
+  }
+</style>

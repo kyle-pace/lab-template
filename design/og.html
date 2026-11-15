@@ -1,0 +1,24 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+/* Share card for kylepace.dev/lab-slug/ (public/lab-slug/og.png). Render with npm run og
+   (share-card skill). Restyle it in the lab's own look once design/PLAN.md exists: use
+   the page's dark-mode colors from src/styles/theme.css and its one bold element. */
+@font-face{font-family:A;src:url("../node_modules/@fontsource/atkinson-hyperlegible-next/files/atkinson-hyperlegible-next-latin-400-normal.woff2")}
+@font-face{font-family:A;font-weight:700;src:url("../node_modules/@fontsource/atkinson-hyperlegible-next/files/atkinson-hyperlegible-next-latin-700-normal.woff2")}
+:root{--bg:#141317;--ink:#f3efe8;--muted:#aaa5b2;--accent:#f0b35a}
+html,body{margin:0}
+body{width:1200px;height:630px;background:var(--bg);color:var(--ink);font-family:A;overflow:hidden}
+.card{box-sizing:border-box;width:1200px;height:630px;padding:72px;display:flex;flex-direction:column;justify-content:space-between}
+.site{font-size:30px;color:var(--muted)}
+.site b{color:var(--accent);font-weight:700}
+h1{margin:0;max-width:980px;font-size:96px;line-height:1.02;letter-spacing:-0.02em;font-weight:700}
+.sub{margin:28px 0 0;max-width:900px;font-size:34px;line-height:1.35;color:var(--muted)}
+</style></head><body>
+<div class="card">
+  <div class="site">kylepace.dev/<b>lab-slug</b></div>
+  <div>
+    <h1>Lab Name</h1>
+    <p class="sub">Lab description.</p>
+  </div>
+  <div class="site">A lab by Kyle Pace</div>
+</div>
+</body></html>

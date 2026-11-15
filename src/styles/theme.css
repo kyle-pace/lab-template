@@ -1,0 +1,100 @@
+/*
+  This lab's own look. LabLayout (kp-design) loads lab.css first: Atkinson, a reset and
+  kp-design's tokens as defaults. This file overrides those tokens so the lab looks like
+  itself, not like a page of kylepace.dev.
+
+  Before changing anything here, write design/PLAN.md: the subject, the one bold element
+  and 4 to 6 named colors in light and dark. Then put those colors below, one name per
+  token, and check every text pair for 4.5:1 contrast (3:1 for borders and icons) in both
+  modes. Until then the lab wears kp-design's defaults, which already pass.
+*/
+:root {
+  /* --bg: light-dark(#______, #______);         Page */
+  /* --bg-raised: light-dark(#______, #______);  Panels and cards */
+  /* --ink: light-dark(#______, #______);        Text */
+  /* --ink-muted: light-dark(#______, #______);  Secondary text (still 4.5:1) */
+  /* --line: light-dark(#______, #______);       Decorative lines only */
+  /* --accent: light-dark(#______, #______);     The one bold color */
+  /* --accent-ink: light-dark(#______, #______); Links and focus rings */
+  /* --radius: 4px;  --radius-sm: 2px; */
+}
+
+/* ---------- Scaffolding every lab page uses. Restyle freely. ---------- */
+
+/* The page column. The app comes first and can use the full width; prose stays narrow. */
+.lab-page {
+  width: min(100% - 2 * var(--gutter), var(--wide));
+  margin-inline: auto;
+  padding-bottom: var(--space-12);
+}
+
+/* One line of title, then the app. No lede, no tagline. */
+.title {
+  margin-block: var(--space-2) var(--space-6);
+  font-size: var(--step-3);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+/* "About" (and "Back to the lab" on the About page) on the right of the top bar. */
+.bar-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding-inline: var(--space-2);
+  margin-inline-end: calc(-1 * var(--space-2));
+  border-radius: var(--radius-sm);
+  color: var(--ink-muted);
+  font-size: var(--step--1);
+  text-decoration: none;
+}
+
+.bar-link:hover {
+  color: var(--ink);
+  text-decoration: underline;
+}
+
+.prose p,
+.prose li {
+  max-width: var(--measure);
+}
+
+.prose a {
+  text-underline-offset: 0.15em;
+}
+
+/* ---------- The About page (headings and steps from the about-page skill) ---------- */
+
+.about-page section {
+  margin-bottom: var(--space-12);
+}
+
+.about-page h2 {
+  margin: 0 0 var(--space-4);
+  font-size: var(--step-1);
+  font-weight: 700;
+}
+
+.about-page p {
+  margin: 0 0 var(--space-3);
+}
+
+.steps {
+  display: grid;
+  gap: var(--space-8);
+  max-width: var(--measure);
+  margin: 0;
+  padding-inline-start: var(--space-6);
+}
+
+.steps h3 {
+  margin: 0 0 var(--space-1);
+  font-size: var(--step-0);
+  font-weight: 700;
+}
+
+.steps .where {
+  color: var(--ink-muted);
+  font-size: var(--step--1);
+}
