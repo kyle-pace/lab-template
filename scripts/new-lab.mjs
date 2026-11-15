@@ -40,7 +40,7 @@ for (const file of files) {
   const before = readFileSync(file, 'utf8');
   let after = before
     // Template-only blocks (setup instructions) go away.
-    .replace(/<!-- template:start -->[\s\S]*?<!-- template:end -->\n?/g, '')
+    .replace(/<!-- template:start -->[\s\S]*?<!-- template:end -->\n*/g, '')
     .replaceAll('Lab description.', sentence)
     .replaceAll('Lab Name', name)
     .replaceAll('lab-slug', slug);
